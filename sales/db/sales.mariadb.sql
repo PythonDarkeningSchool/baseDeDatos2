@@ -3,7 +3,7 @@ use sales;
 
 create table usuarios (
     id_usuario int auto_increment,
-    nombre varchar(50)
+    nombre varchar(50),
     apellido varchar(50),
     email varchar(50),
     password text(50),
