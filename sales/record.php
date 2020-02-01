@@ -1,4 +1,16 @@
-<IDOCTYPE html>
+<?php
+  require_once 'class/connection.php';
+  $obj = new Connection();
+  $connection = $obj -> establish();
+
+  $sql = "SELECT from usuarios where email='admin'";
+  $result = mysqli_query($connection, $sql);
+  $validate = 0;
+
+  if(mysqli_num_rows($result) > 0){  header('location:index.php'); }
+?>
+
+<!DOCTYPE html>
 <html>
   <head>
     <title>Record</title>
