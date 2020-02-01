@@ -4,7 +4,7 @@
     <title>Record</title>
     <link rel="stylesheet" type="text/css" href="librerias/bootstrap/css/bootstrap.css">
     <script src="librerias/jquery-3.2.1.min.js"></script>
-    <script src="js/funciones.js"></script>
+    <script src="js/functions.js"></script>
   </head>
   <body style="background-color: gray">
     <div class="container">
@@ -41,19 +41,27 @@
     $('#register').on('click', function(){
       let emptyFields = validateEmptyForm('frmRegistro');
 
-      if(emptyFields > 0) alert('All fields are required')
+      if(emptyFields > 0) {
+        alert('All fields are required');
+        return false;
+      }
 
       data=$('#frmRegistro').serialize();
 
       $.ajax({
         type: 'POST',
         data: data,
-        url: '../processes/regLogin/recordUser.php',
-        success: function(r){
-          
+        url: '../processes/regLogin/registerUser.php',
+        success: function(result){
+          alert(result);
+
+          if(result === 1){
+            alert('Record successfully added');
+          } else { 
+            alert('could not add record');
+          }
         }
       });
-
     });
-  })
+  });
 </script>

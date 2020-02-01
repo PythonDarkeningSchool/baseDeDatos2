@@ -1,4 +1,5 @@
-class Connection (
+<?php
+class Connection {
  
     private $_SERVER="localhost";
     private $_USER="root";
@@ -6,7 +7,7 @@ class Connection (
     private $_DB="sales";
 
     public function establish(){
-        $CONNECTION=mysql_connect(
+        $CONNECTION = mysqli_connect(
             $this-> _SERVER,
             $this-> _USER,
             $this-> _PASSWORD,
@@ -15,4 +16,6 @@ class Connection (
 
         return $CONNECTION;
     }
-)
+}
+
+?>
