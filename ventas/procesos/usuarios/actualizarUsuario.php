@@ -11,5 +11,5 @@
     $_POST['usuarioU']
   );
 
-  echo $obj->actualizaUsuario($dats);
+  echo $obj->actualizaUsuario($datos);
 ?>
