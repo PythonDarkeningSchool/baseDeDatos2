@@ -111,7 +111,7 @@
           function eliminaCategoria(idcategoria){
             alertify.confirm('Deseas eliminar esta categoria', function(){
               $.ajax({
-                type="POST",
+                type: "POST",
                 data: "idcategoria=" + idcategoria,
                 url: '../procesos/categorias/eliminarCategoria.php',
                 success: function(r){
