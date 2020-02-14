@@ -176,7 +176,9 @@
 					return false;
 				}
 
-				var formData = new FormData(document.getElementById("frmArticulos"));
+        var formData = new FormData(document.getElementById("frmArticulos"));
+        console.log(`formData: ${formData}`);
+        console.log(`typeof formData: ${typeof formData}`);
 
 				$.ajax({
 					url: "../procesos/articulos/insertaArticulos.php",
@@ -188,7 +190,8 @@
 					processData: false,
 
 					success:function(r){
-						
+            
+            console.log(`r: ${r}`);
 						if(r == 1){
 							$('#frmArticulos')[0].reset();
 							$('#tablaArticulosLoad').load("articulos/tablaArticulos.php");
