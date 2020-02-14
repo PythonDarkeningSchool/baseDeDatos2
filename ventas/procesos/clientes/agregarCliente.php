@@ -1,4 +1,6 @@
 <?php
+
+  session_start();
   require_once "../../clases/Conexion.php";
   require_once "../../clases/Clientes.php";
 

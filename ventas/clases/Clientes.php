@@ -33,13 +33,12 @@
         'direccion' => $ver[3],
         'email' => $ver[4],
         'telefono' => $ver[5],
-        'rfc' => $ver[6],
+        'rfc' => $ver[6]
       );
       return $datos;
     }
 
-
-    public function  actualizaCliente($datos){
+    public function actualizaCliente($datos){
       $c=new conectar();
       $conexion=$c->conexion();
       $sql="UPDATE clientes SET 
@@ -53,7 +52,7 @@
       return mysqli_query($conexion, $sql);
     }
 
-    public function eliminarCliente($idcliente){
+    public function eliminaCliente($idcliente){
       $c=new conectar();
       $conexion=$c->conexion();
       $sql="DELETE from clientes WHERE id_cliente='$idcliente'";

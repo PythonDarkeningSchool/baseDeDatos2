@@ -21,7 +21,7 @@
       <td><?php echo $ver[2]; ?></td>
       <td><?php echo $ver[3]; ?></td>
       <td>
-        <span data-toggle="modal" data-target="#actualizaUsuarioModal" class="btn btn-warning btn-xs" onclick="agregaDatosUsuario('<?php echo $ver[0];?>')">
+      <span data-toggle="modal" data-target="#actualizaUsuarioModal" class="btn btn-warning btn-xs" onclick="agregaDatosUsuario('<?php echo $ver[0]; ?>')">
           <span class="glyphicon glyphicon-pencil"></span>
         </span>
       </td>

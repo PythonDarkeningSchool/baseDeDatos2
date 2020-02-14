@@ -33,8 +33,8 @@
                 <div class="modal-dialog modal-sm" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" arial-label="Close">
-                        <span arial-hidden="true">&times;;</span>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
                       </button>
                       <h4 class="modal-title" id="myModalLabel">Actualiza categorias</h4>
                     </div>
@@ -56,7 +56,7 @@
         <script type="text/javascript">
           $(document).ready(function(){
             $('#tablaCategoriaLoad').load('categorias/tablaCategorias.php');
-            $('#btnAgreagaCategoria').click(function(){
+            $('#btnAgregaCategoria').click(function(){
               vacios=validarFormVacio('frmCategorias');
               if(vacios > 0){
                 alertify.alert("Debes llenar todos los campos!!");
@@ -109,7 +109,7 @@
             $('#categoriaU').val(categoria);
           }
           function eliminaCategoria(idcategoria){
-            alertify.confirm('Deseas eliminar esta categoria', function(){
+            alertify.confirm('Deseas eliminar esta categoria?', function(){
               $.ajax({
                 type: "POST",
                 data: "idcategoria=" + idcategoria,
@@ -130,6 +130,6 @@
         </script>
         <?php
     } else {
-      header('location: ../index.php');
+      header('location:../index.php');
     }
     ?>

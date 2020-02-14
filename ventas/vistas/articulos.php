@@ -6,10 +6,10 @@
     <html>
       <head>
         <title>articulos</title>
-        <?php require_once "menu.php" ?>
+        <?php require_once "menu.php"; ?>
         <?php require_once "../clases/Conexion.php";
-          $c = new conectar();
-          $conexion = $c -> conexion();
+          $c= new conectar();
+          $conexion=$c->conexion();
           $sql = 'SELECT id_categoria, nombreCategoria from categorias';
           $result = mysqli_query($conexion, $sql);
         ?>
@@ -73,13 +73,13 @@
                     <?php endwhile; ?>
                   </select>
                   <label>Nombre</label>
-                  <input type="text" class="form-control input-sm" id="nombreU" nombre="nombreU">
+                  <input type="text" class="form-control input-sm" id="nombreU" name="nombreU">
                   <label>Descripcion</label>
-                  <input type="text" class="form-control input-sm" id="descripcionU" nombre="descripcionU">
+                  <input type="text" class="form-control input-sm" id="descripcionU" name="descripcionU">
                   <label>Cantidad</label>
-                  <input type="text" class="form-control input-sm" id="cantidadU" nombre="cantidadU">
+                  <input type="text" class="form-control input-sm" id="cantidadU" name="cantidadU">
                   <label>Precio</label>
-                  <input type="text" class="form-control input-sm" id="precioU" nombre="precioU">                  
+                  <input type="text" class="form-control input-sm" id="precioU" name="precioU">                  
                 </form>
               </div>
               <div class="modal-footer">
@@ -98,7 +98,7 @@
           data: "idart=" + idarticulo,
           url: "../procesos/articulos/obtenDatosArticulo.php",
           success: function(r){
-            dato=JQuery.parseJSON(r);
+            dato=jQuery.parseJSON(r);
             $("#idArticulo").val(dato['id_producto']);
             $("#categoriaSelectU").val(dato['id_categoria']);
             $("#nombreU").val(dato['nombre']);
@@ -108,17 +108,16 @@
           }
         });
       }
-      function eliminaArticulo(idarticulo){
-
-        alertify.confirm('Desea eliminar este articulo', function(){
+      function eliminaArticulo(idArticulo){
+        alertify.confirm('Desea eliminar este articulo?', function(){
           $.ajax({
             type: "POST",
-            data: "idarticulo=" + idarticulo,
+            data: "idarticulo=" + idArticulo,
             url: "../procesos/articulos/eliminarArticulo.php",
             success: function(r){
               if(r==1){
                 $('#tablaArticulosLoad').load('articulos/tablaArticulos.php');
-                alertify.success('ELiminado con exito!');
+                alertify.success('Eliminado con exito!');
               } else {
                 alertify.error('No se pudo eliminar!');
               }
@@ -132,12 +131,12 @@
   
     <script type="text/javascript">
       $(document).ready(function(){
-        $('btnActualizararticulo').click(function(){
+        $('#btnActualizaarticulo').click(function(){
           datos=$('#frmArticulosU').serialize();
           $.ajax({
             type: "POST",
             data: datos,
-            url: "../procesos/articulos/actualizarArticulos.php",
+            url: "../procesos/articulos/actualizaArticulos.php",
             success: function(r){
               if(r==1){
                 $('#tablaArticulosLoad').load('articulos/tablaArticulos.php');
@@ -184,6 +183,6 @@
 
       <?php
     } else {
-      header('location: ../index.php');
+      header('location:../index.php');
     }
   ?>

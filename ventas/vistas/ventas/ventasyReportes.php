@@ -29,7 +29,7 @@
             <td><?php echo $ver[1] ?></td>
             <td>
               <?php
-                if($obj->nombreCliente($ver[2]==" ")){
+                if($obj->nombreCliente($ver[2])==" "){
                   echo "S/C";
                 } else {
                   echo $obj->nombreCliente($ver[2]);

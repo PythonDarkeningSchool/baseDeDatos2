@@ -11,10 +11,11 @@
       </head>
       <body>
         <div class="container">
+        <h1>Venta de productos</h1>
           <div class="row">
             <div class="col-sm-12">
-              <span class="btn btn-default" id="ventaProductosBtn">Vender productos</span>
-              <span class="btn btn-default" id="ventaHechasBtn">Ventas hechas</span>
+              <span class="btn btn-default" id="ventaProductosBtn">Vender producto</span>
+              <span class="btn btn-default" id="ventasHechasBtn">Ventas hechas</span>
             </div>
           </div>
           <div class="row">
@@ -31,10 +32,10 @@
       $(document).ready(function(){
         $('#ventaProductosBtn').click(function(){
           esconderSeccionVenta();
-          $('#ventasHechas').load('ventas/ventasDeProductos.php');
+          $('#ventaProductos').load('ventas/ventasDeProductos.php');
           $('#ventaProductos').show();
         });
-        $('#ventaHechasBtn').click(function(){
+        $('#ventasHechasBtn').click(function(){
           esconderSeccionVenta();
           $('#ventasHechas').load('ventas/ventasyReportes.php');
           $('#ventasHechas').show();
@@ -42,12 +43,12 @@
       });
 
       function esconderSeccionVenta(){
-        $('#ventasProductos').hide();
+        $('#ventaProductos').hide();
         $('#ventasHechas').hide();
       }
     </script>
     <?php
   } else {
-    header('location: ../index.php');
+    header('location:../index.php');
   }
 ?>

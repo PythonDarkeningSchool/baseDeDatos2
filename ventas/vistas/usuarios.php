@@ -38,6 +38,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
+                <h4 class="modal-title" id="myModalLabel">Actualiza Usuario</h4>
               </div>
               <div class="modal-body">
                 <form id="frmRegistroU">
@@ -67,7 +68,7 @@
           url: '../procesos/usuarios/obtenDatosUsuario.php',
           success: function(r){
             dato=jQuery.parseJSON(r);
-            $('#idusuario').val(dato['id_usuario']);
+            $('#idUsuario').val(dato['id_usuario']);
             $('#nombreU').val(dato['nombre']);
             $('#apellidoU').val(dato['apellido']);
             $('#usuarioU').val(dato['email']);
@@ -147,6 +148,6 @@
 
     <?php
     } else {
-      header('location: ../index.php');
+      header('location:../index.php');
     }
     ?>

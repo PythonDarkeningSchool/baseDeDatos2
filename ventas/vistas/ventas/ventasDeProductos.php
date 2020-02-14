@@ -10,7 +10,7 @@
     <form id="frmVentasProductos">
       <label>Selecciona Cliente</label>
       <select class="form-control input-sm" id="clienteVenta" name="clienteVenta">
-        <option value="A">Sin cliente</option>
+        <option value="A">Selecciona</option>
         <option value="0">Sin cliente</option>
         <?php
           $sql="SELECT id_cliente, nombre, apellido FROM clientes";
@@ -21,7 +21,7 @@
           <?php endwhile; ?>
       </select>
       <label>Producto</label>
-      <select class="from-control input-sm" id="productoVenta" name="productoVenta">
+      <select class="form-control input-sm" id="productoVenta" name="productoVenta">
         <option value="A">Selecciona</option>
         <?php
           $sql="SELECT id_producto, nombre, FROM articulos";
@@ -59,11 +59,11 @@
         data: "idproducto=" + $('#productoVenta').val(),
         url: "../procesos/ventas/llenarFormProducto.php",
         success: function(r){
-          dato=JQuery.parseJSON(r);
+          dato=jQuery.parseJSON(r);
           $('#descripcionV').val(dato['descripcion']);
           $('#cantidadV').val(dato['cantidad']);
           $('#precioV').val(dato['precio']);
-          $('#imgProducto').prepend('<img class="img-thumbnail" id="imgp" src="' + dato['ruta'] +  '" />');
+          $('#imgProducto').prepend('<img class="img-thumbnail" id="imgp" src="' + dato['ruta'] + '" />');
         }
       });
     });

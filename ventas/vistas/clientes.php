@@ -31,7 +31,7 @@
                 </form>
               </div>
               <div class="col-sm-8">
-                  <div id="tableClientesLoad"></div>
+                  <div id="tablaClientesLoad"></div>
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@
               dato=JQuery.parseJSON(r);
               $('#idclienteU').val(dato['id_cliente']);
               $('#nombreU').val(dato['nombre']);
-              $('#apellidoU').val(dato['apellido']);
+              $('#apellidosU').val(dato['apellido']);
               $('#direccionU').val(dato['direccion']);
               $('#emailU').val(dato['email']);
               $('#telefonoU').val(dato['telefono']);
@@ -117,7 +117,7 @@
             vacios=validarFormVacio('frmClientes');
 
             if(vacios > 0){
-              alert("Debes llenar todos los campos!!");
+              alertify.alert("Debes llenar todos los campos!!");
               return false;
             }
             datos=$('#frmClientes').serialize();
@@ -162,6 +162,6 @@
     </script>
       <?php
     } else {
-      header('location: ../index.php');
+      header('location:../index.php');
     }
     ?>

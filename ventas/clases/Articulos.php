@@ -18,7 +18,7 @@
         return mysqli_insert_id($conexion);
     }
 
-    public function insertArticulo($datos){
+    public function insertaArticulo($datos){
       $c=new conectar();
       $conexion=$c->conexion();
       $fecha=date('Y-m-d');
@@ -64,14 +64,17 @@
     public function actualizaArticulo($datos){
       $c=new conectar();
       $conexion=$c->conexion();
-      $sql="UPDATE articulos SET id_categoria='$datos[1]', 
-            nombre='$datos[2]', descripcion='$datos[3], cantidad='$datos[3],
-            precio='$datos[4] WHERE id_producto='$datos[0]'";
+			$sql="UPDATE articulos set id_categoria='$datos[1]', 
+      nombre='$datos[2]',
+      descripcion='$datos[3]',
+      cantidad='$datos[4]',
+      precio='$datos[5]'
+      where id_producto='$datos[0]'";
 
       return mysqli_query($conexion, $sql);
     }
 
-    public function eliminarArticulo($idarticulo){
+    public function eliminaArticulo($idarticulo){
       $c=new conectar();
       $conexion=$c->conexion();
       $idimagen=self::obtenIdImg($idarticulo);
@@ -95,7 +98,7 @@
       $conexion=$c->conexion();
       $sql="SELECT id_imagen FROM articulos WHERE id_producto='$idProducto'";
       $result=mysqli_query($conexion, $sql);
-      return mysqli_fetch_row($result[0]);
+      return mysqli_fetch_row($result)[0];
     }
 
     public function obtenRutaImagen($idImg){
@@ -103,7 +106,7 @@
       $conexion=$c->conexion();
       $sql="SELECT ruta FROM imagenes WHERE id_imagen='$idImg'";
       $result=mysqli_query($conexion, $sql);
-      return mysqli_fetch_row($result[0]);
+      return mysqli_fetch_row($result)[0];
     }
   }
 ?>

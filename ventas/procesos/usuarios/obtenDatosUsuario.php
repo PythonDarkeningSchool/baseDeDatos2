@@ -3,5 +3,5 @@
   require_once "../../clases/Usuarios.php";
 
   $obj=new usuarios;
-  echo $obj->eliminarArticulo($idart);
+  echo json_encode($obj->obtenDatosUsuario($_POST['idusuario']));
 ?>
